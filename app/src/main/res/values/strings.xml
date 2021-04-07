@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Autonomo</string>
+    <string name="hello">Hello</string>
+    <string name="john">John</string>
+    <string name="pesquisa">Pesquisa</string>
+    <string name="ol">Olá</string>
+    <string name="lista_de_produtos">Lista de Produtos</string>
+    <string name="products_bar">Produtos</string>
+</resources>

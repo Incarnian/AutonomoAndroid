@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/product_img"
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_height="48dp"
+        android:src="@drawable/product_img_test"
+        android:scaleType="centerCrop"
+        android:layout_margin="5dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="8"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_marginBottom="4dp"
+            android:text="T-Shirt"/>
+
+        <TextView
+            android:id="@+id/product_description"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:textSize="12sp"
+            android:text="This is a good T-Shirt"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="2"
+        android:gravity="end"
+        android:layout_marginTop="10dp"
+        android:text="R$ 5487,00"
+        android:textAlignment="textEnd"
+        android:textSize="10sp" />
+
+</LinearLayout>

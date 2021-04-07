@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginTop="84dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pass"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Criar nova conta"
+            android:textSize="38sp"
+            android:layout_gravity="center"
+            android:textColor="#3f4658"/>
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuário"
+            android:textSize="14sp"
+            android:textColor="#3f4658"/>
+
+
+        <EditText
+            android:drawableRight="@drawable/ic_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"/>
+
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senha"
+            android:textSize="14sp"
+            android:textColor="#3f4658"/>
+
+        <EditText
+            android:drawableRight="@drawable/ic_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp">
+
+        </EditText>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textSize="14sp"
+            android:textColor="#3f4658">
+        </TextView>
+
+        <EditText
+            android:drawableRight="@drawable/ic_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp">
+        </EditText>
+
+        <TextView
+            android:layout_gravity="right"
+            android:layout_marginRight="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esqueceu a sua senha?"
+            android:textSize="10sp"
+            android:textColor="#3f4658">
+        </TextView>
+
+        <Button
+            android:background="@drawable/btn_login"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Criar conta"
+            android:textColor="#D8D8D8"
+            ></Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entre nas nossas redes sociais"
+            android:textSize="18dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="14dp"
+            android:textColor="#BC3F4658"
+            >
+
+        </TextView>
+        <LinearLayout
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <ImageView
+                android:src="@drawable/facebook_logo"
+                android:layout_width="28dp"
+                android:layout_height="32dp">
+            </ImageView>
+            <ImageView
+                android:layout_marginLeft="18dp"
+                android:src="@drawable/twitter_logo"
+                android:layout_width="28dp"
+                android:layout_height="22dp">
+            </ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="Já tem uma conta?">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:textSize="18dp"
+                android:text="Clique aqui"
+                android:textColor="#2F5594">
+
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
