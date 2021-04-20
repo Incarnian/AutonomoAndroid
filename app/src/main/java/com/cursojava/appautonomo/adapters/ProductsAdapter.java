@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cursojava.appautonomo.R;
-import com.cursojava.appautonomo.backend.products.ProductResponse;
+import com.cursojava.appautonomo.model.ProductResponse;
 
 import java.util.List;
 

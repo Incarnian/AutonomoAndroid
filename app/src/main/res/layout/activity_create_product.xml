@@ -60,11 +60,10 @@
             android:textSize="14dp"
             ></TextView>
             <EditText
-                android:id="@+id/nomeprod"
+                android:id="@+id/product_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Açai com Banana"
                 android:textColorHint="@color/colorBlack"
                 ></EditText>
         <LinearLayout
@@ -82,7 +81,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ID"
+                    android:text="Quantidade"
                     android:layout_weight="2"
                     android:layout_marginRight="8dp"
                     >
@@ -101,23 +100,21 @@
             android:orientation="horizontal"
             android:layout_marginTop="0dp">
             <EditText
-                android:id="@+id/idprod"
+                android:id="@+id/product_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_marginRight="8dp"
-                android:hint="10001"
                 android:textColorHint="@color/colorBlack"
                 android:inputType="number"
                 >
             </EditText>
             <EditText
-                android:id="@+id/precoprod"
+                android:id="@+id/product_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_marginLeft="8dp"
-                android:hint="15.00"
                 android:inputType="numberDecimal"
                 android:textColorHint="@color/colorBlack">
             </EditText>
@@ -125,7 +122,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/unidadeprod"
+            android:id="@+id/product_measurement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -135,7 +132,7 @@
             android:inputType="text"
             android:textColorHint="@color/colorBlack"></EditText>
         <EditText
-            android:id="@+id/fornecedorprod"
+            android:id="@+id/product_supplier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -145,7 +142,7 @@
             android:inputType="text"
             android:textColorHint="@color/colorBlack"></EditText>
         <EditText
-            android:id="@+id/descricaoprod"
+            android:id="@+id/product_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -163,17 +160,18 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp">
+
         <Button
-            android:id="@+id/cadastro"
-            android:background="@drawable/btn_cad_prod"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
+            android:id="@+id/btn_cadastrar"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_cad_prod"
             android:text="Cadastrar Produto"
             android:textColor="#D8D8D8"
-            ></Button>
+            android:textSize="16dp"></Button>
     </LinearLayout>
 
 

@@ -5,14 +5,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.cursojava.appautonomo.R;
 import com.cursojava.appautonomo.adapters.ProductsAdapter;
 import com.cursojava.appautonomo.backend.products.ProductClient;
-import com.cursojava.appautonomo.backend.products.ProductResponse;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.cursojava.appautonomo.model.ProductResponse;
 
 import java.util.List;
 
@@ -39,7 +37,7 @@ public class ProductsActivity extends AppCompatActivity {
         addProductBtn.setOnClickListener(v -> onAddNewProduct());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://863c1651c636.ngrok.io")
+                .baseUrl("https://500e16a19fd2.ngrok.io")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
