@@ -4,43 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@drawable/sea">
+    android:background="@color/colorBackground">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
         tools:context=".SignInActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp">
+
         <ImageView
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_app"
-
             />
-    </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical"
-            android:background="@drawable/background_sign"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:orientation="vertical">
 
 
             <TextView
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bem vindo"
@@ -54,18 +44,17 @@
                 android:layout_height="wrap_content"
                 android:text="Faça o login na sua conta"
                 android:textSize="22sp"
-
                 android:layout_gravity="center"
                 android:textColor="#3f4658">
             </TextView>
             <TextView
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Conta"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary">
+                android:textSize="14sp"
+                android:textColor="#3f4658">
             </TextView>
 
             <EditText
@@ -82,12 +71,12 @@
 
             <TextView
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Senha"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary">
+                android:textSize="14sp"
+                android:textColor="#3f4658">
             </TextView>
 
             <EditText
@@ -107,8 +96,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Esqueceu a sua senha?"
-                android:textSize="14sp"
-                android:textColor="@color/colorPrimaryDark">
+                android:textSize="10sp"
+                android:textColor="#3f4658">
             </TextView>
 
             <Button
@@ -120,9 +109,8 @@
                 android:background="@drawable/btn_login"
                 android:text="Entrar"
                 android:textColor="#D8D8D8"
-                android:textSize="18dp"
-                android:layout_marginBottom="16dp"></Button>
-        </LinearLayout>
+                android:textSize="18dp"></Button>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -130,7 +118,7 @@
                 android:textSize="18dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="14dp"
-                android:textColor="@color/colorBackground"
+                android:textColor="#BC3F4658"
                 >
 
             </TextView>
@@ -143,14 +131,14 @@
                 >
                 <ImageView
                     android:src="@drawable/facebook_logo"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp">
+                    android:layout_width="28dp"
+                    android:layout_height="32dp">
                 </ImageView>
                 <ImageView
                     android:layout_marginLeft="18dp"
                     android:src="@drawable/twitter_logo"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp">
+                    android:layout_width="28dp"
+                    android:layout_height="22dp">
                 </ImageView>
             </LinearLayout>
             <LinearLayout
@@ -160,18 +148,15 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_marginBottom="16dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:text="Não tem um conta?"
-                    android:textColor="@color/colorBackground">
+                    android:text="Não tem um conta?">
 
                 </TextView>
                 <TextView
-                    android:id="@+id/signup_click"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
@@ -183,4 +168,5 @@
             </LinearLayout>
         </LinearLayout>
 
+    </LinearLayout>
 </ScrollView>

@@ -131,7 +131,7 @@
             android:drawableTint="@color/colorGray"
             android:hint="Vender por: Unidade"
             android:inputType="text"
-            ></EditText>
+            android:textColorHint="@color/colorBlack"></EditText>
         <EditText
             android:id="@+id/product_supplier"
             android:layout_width="match_parent"
@@ -141,7 +141,7 @@
             android:drawableTint="@color/colorGray"
             android:hint="Fornecedor"
             android:inputType="text"
-            ></EditText>
+            android:textColorHint="@color/colorBlack"></EditText>
         <EditText
             android:id="@+id/product_description"
             android:layout_width="match_parent"
@@ -151,7 +151,7 @@
             android:drawableTint="@color/colorGray"
             android:hint="Descrição"
             android:inputType="text"
-            ></EditText>
+            android:textColorHint="@color/colorBlack"></EditText>
     </LinearLayout>
 
     <LinearLayout
