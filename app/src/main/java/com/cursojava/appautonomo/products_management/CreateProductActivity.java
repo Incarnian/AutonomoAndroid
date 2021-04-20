@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cursojava.appautonomo.R;
@@ -31,6 +32,7 @@ public class CreateProductActivity extends AppCompatActivity {
     private EditText productMeasurement;
     private EditText productSupplier;
     private Button btnCadastro;
+    private ImageView btnExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +46,16 @@ public class CreateProductActivity extends AppCompatActivity {
         productMeasurement = findViewById(R.id.product_measurement);
         productSupplier = findViewById(R.id.product_supplier);
 
+        btnExit = findViewById(R.id.exit_btn);
+        btnExit.setOnClickListener(v -> finish());
+
         btnCadastro = findViewById(R.id.btn_cadastrar);
         btnCadastro.setOnClickListener(v -> cadastrarProduto());
     }
 
     private void cadastrarProduto() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://500e16a19fd2.ngrok.io")
+                .baseUrl("http://e39b06d47541.ngrok.io")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

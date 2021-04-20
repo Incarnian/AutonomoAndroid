@@ -37,7 +37,7 @@ public class ProductsActivity extends AppCompatActivity {
         addProductBtn.setOnClickListener(v -> onAddNewProduct());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://500e16a19fd2.ngrok.io")
+                .baseUrl("http://e39b06d47541.ngrok.io")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

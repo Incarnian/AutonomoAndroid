@@ -12,9 +12,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ProductClient {
-    @GET("/users/3/products")
+    @GET("/users/2/products")
     Call<List<ProductResponse>> getProducts();
 
-    @POST("/users/3/products")
+    @POST("/users/2/products")
     Call<ProductResponse> saveProduct(@Body ProductRequest productRequest);
 }
