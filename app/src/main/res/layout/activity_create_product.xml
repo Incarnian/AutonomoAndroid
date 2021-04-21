@@ -121,33 +121,51 @@
             </EditText>
 
         </LinearLayout>
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecione o tipo de unidade"
+            android:background="@color/colorWhite"
+            android:layout_marginTop="16dp"></TextView>
         <EditText
             android:id="@+id/product_measurement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Vender por: Unidade"
             android:inputType="text"
             android:textColorHint="@color/colorBlack"></EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorLightGray">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Escolha o seu fornecedor"
+        android:background="@color/colorWhite"></TextView>
 
         <Spinner
             android:id="@+id/product_supplier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@android:array/phoneTypes"
             android:spinnerMode="dropdown"
             android:visibility="visible"
             tools:visibility="visible"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             ></Spinner>
+
+</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicione uma descrição ao produto"
+            android:background="@color/colorWhite"
+            android:layout_marginTop="16dp"></TextView>
         <EditText
             android:id="@+id/product_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Descrição"
             android:inputType="text"
             android:textColorHint="@color/colorBlack"></EditText>
     </LinearLayout>

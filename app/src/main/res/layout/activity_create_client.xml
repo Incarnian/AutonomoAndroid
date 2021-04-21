@@ -73,7 +73,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="Fillipe Augusto"
                 android:textColorHint="@color/colorBlack"
                 ></EditText>
             <LinearLayout
@@ -106,29 +105,66 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:hint="fillipe.bonanome@gmail.com"
                     android:textColorHint="@color/colorBlack"
                     android:inputType="textEmailAddress">
                 </EditText>
 
             </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CPF"
+                android:layout_marginTop="16dp"
+                android:layout_weight="2"
+                android:inputType="number">
+            </TextView>
             <EditText
                 android:id="@+id/cpfclient"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="CPF"
                 android:inputType="text"
                 android:textColorHint="@color/colorBlack"></EditText>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefone"
+                android:layout_marginTop="16dp"
+                android:layout_weight="2"
+                android:inputType="number">
+            </TextView>
             <EditText
                 android:id="@+id/phoneclient"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:hint="Telefone"
                 android:inputType="phone"
                 android:textColorHint="@color/colorBlack"></EditText>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Logradouro"
+                    android:layout_weight="4"
+                    android:inputType="number">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bairro"
+                    android:layout_weight="3"
+                    android:inputType="number">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Número"
+                    android:layout_weight="5"
+                    android:inputType="number">
+                </TextView>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,29 +173,50 @@
                 android:id="@+id/logradouro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_weight="4"
-                android:hint="Logradouro"
                 android:inputType="phone"
                 android:textColorHint="@color/colorBlack"></EditText>
                 <EditText
                     android:id="@+id/bairro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_weight="3"
-                    android:hint="Bairro"
                     android:inputType="phone"
                     android:textColorHint="@color/colorBlack"></EditText>
                 <EditText
                     android:id="@+id/number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_weight="5"
-                    android:hint="Nº"
                     android:inputType="phone"
                     android:textColorHint="@color/colorBlack"></EditText>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cidade"
+                    android:layout_weight="5"
+                    android:inputType="number">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CEP"
+                    android:layout_weight="5"
+                    android:inputType="number">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="UF"
+                    android:layout_weight="7"
+                    android:inputType="number">
+                </TextView>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -169,30 +226,21 @@
                 android:id="@+id/cidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_weight="5"
-                android:hint="Cidade"
-                android:inputType="phone"
                 android:textColorHint="@color/colorBlack"
                 ></EditText>
                 <EditText
                     android:id="@+id/cep"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_weight="5"
-                    android:hint="CEP"
-                    android:inputType="phone"
                     android:textColorHint="@color/colorBlack"
                     ></EditText>
                 <EditText
                     android:id="@+id/uf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_weight="7"
-                    android:hint="UF"
-                    android:inputType="phone"
                     android:textColorHint="@color/colorBlack"
                     ></EditText>
             </LinearLayout>

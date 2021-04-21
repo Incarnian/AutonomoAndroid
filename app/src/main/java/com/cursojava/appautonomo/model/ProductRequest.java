@@ -7,12 +7,12 @@ public class ProductRequest {
     private String description;
     private String measurement;
     private Integer quantity;
-    private String supplierId;
+    private Long supplierId;
 
     public ProductRequest() {
     }
 
-    public ProductRequest(String name, Double price, String description, String measurement, Integer quantity, String supplierId) {
+    public ProductRequest(String name, Double price, String description, String measurement, Integer quantity, Long supplierId) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -41,7 +41,7 @@ public class ProductRequest {
         this.quantity = quantity;
     }
 
-    public void setSupplierId(String supplierId) {
+    public void setSupplierId(Long supplierId) {
         this.supplierId = supplierId;
     }
 

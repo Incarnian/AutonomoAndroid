@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.cursojava.appautonomo.R;
-import com.cursojava.appautonomo.backend.products.ProductClient;
+import com.cursojava.appautonomo.backend_request.ProductClient;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
