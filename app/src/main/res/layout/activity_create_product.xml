@@ -127,28 +127,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:drawableRight="@drawable/ic_arrow_down"
-            android:drawableTint="@color/colorGray"
             android:hint="Vender por: Unidade"
             android:inputType="text"
             android:textColorHint="@color/colorBlack"></EditText>
-        <EditText
+
+        <Spinner
             android:id="@+id/product_supplier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:entries="@android:array/phoneTypes"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            tools:visibility="visible"
             android:layout_marginTop="16dp"
-            android:drawableRight="@drawable/ic_arrow_down"
-            android:drawableTint="@color/colorGray"
-            android:hint="Fornecedor"
-            android:inputType="text"
-            android:textColorHint="@color/colorBlack"></EditText>
+            android:layout_marginBottom="8dp"
+            ></Spinner>
         <EditText
             android:id="@+id/product_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:drawableRight="@drawable/ic_arrow_down"
-            android:drawableTint="@color/colorGray"
             android:hint="Descrição"
             android:inputType="text"
             android:textColorHint="@color/colorBlack"></EditText>

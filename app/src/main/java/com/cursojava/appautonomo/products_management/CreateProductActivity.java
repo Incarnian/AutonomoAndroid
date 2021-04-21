@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.cursojava.appautonomo.R;
@@ -30,7 +31,7 @@ public class CreateProductActivity extends AppCompatActivity {
     private EditText productDescription;
     private EditText productPrice;
     private EditText productMeasurement;
-    private EditText productSupplier;
+    private Spinner productSupplier;
     private Button btnCadastro;
     private ImageView btnExit;
 
@@ -69,7 +70,7 @@ public class CreateProductActivity extends AppCompatActivity {
         produtoAserSalvo.setPrice(Double.parseDouble(productPrice.getText().toString()));
         produtoAserSalvo.setMeasurement(productMeasurement.getText().toString());
         produtoAserSalvo.setQuantity(Integer.parseInt(productQuantity.getText().toString()));
-        produtoAserSalvo.setSupplierId(productSupplier.getText().toString());
+        produtoAserSalvo.setSupplierId(productSupplier.getSelectedItem().toString());
 
         System.out.println("\n\n ============================== \n\n");
         System.out.println(produtoAserSalvo);

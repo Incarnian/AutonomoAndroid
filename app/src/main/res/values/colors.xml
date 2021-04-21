@@ -3,10 +3,10 @@
     <color name="colorPrimary">#004267</color>
     <color name="opacity_blue">#A30073B3</color>
     <color name="colorPrimaryDark">#002357</color>
-    <color name="colorAccent">#1BA2D8</color>
+    <color name="colorAccent">#1E5877</color>
     <color name="colorPrimaryLight">#1B76D8</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBackground">#EBEBEB</color>
+    <color name="colorBackground">#0F605D</color>
     <color name="colorTrendingStart">#6DEEF5</color>
     <color name="colorTrendingEnd">#466AC9</color>
     <color name="colorDivider">#D6D6D6</color>

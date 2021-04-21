@@ -4,7 +4,7 @@
     <item
         android:drawable="@drawable/orca_logo"
         android:width="120dp"
-        android:height="100dp"
+        android:height="110dp"
         />
 
 </layer-list>

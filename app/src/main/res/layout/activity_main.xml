@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/sea"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +25,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:text="@string/ol"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorDarkGray"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -37,7 +37,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="15dp"
             android:text="Usuário"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorDarkGray"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/textHello"
