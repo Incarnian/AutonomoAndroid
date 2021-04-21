@@ -11,9 +11,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ProductClient {
-    @GET("/users/4/products")
+    @GET("/users/2/products")
     Call<List<ProductResponse>> getProducts();
 
-    @POST("/users/4/products")
+    @POST("/users/2/products")
     Call<ProductResponse> saveProduct(@Body ProductRequest productRequest);
 }

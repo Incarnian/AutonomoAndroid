@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.cursojava.appautonomo.BuildConfig;
 import com.cursojava.appautonomo.R;
 import com.cursojava.appautonomo.adapters.ProductsAdapter;
+import com.cursojava.appautonomo.backend_request.BackendRequests;
+import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.backend_request.ProductClient;
 import com.cursojava.appautonomo.model.ProductResponse;
 
@@ -36,13 +39,10 @@ public class ProductsActivity extends AppCompatActivity {
         addProductBtn = findViewById(R.id.add_product_btn);
         addProductBtn.setOnClickListener(v -> onAddNewProduct());
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://f426abf38341.ngrok.io")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        ProductClient productClient = retrofit.create(ProductClient.class);
-        Call<List<ProductResponse>> productsResponse = productClient.getProducts();
+        ProductClient requests = HttpClient.getInstance();
+
+        Call<List<ProductResponse>> productsResponse = requests.getProducts();
 
         productsResponse.enqueue(new Callback<List<ProductResponse>>() {
 

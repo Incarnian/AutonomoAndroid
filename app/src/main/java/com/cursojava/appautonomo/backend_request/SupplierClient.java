@@ -8,6 +8,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface SupplierClient {
-    @GET("/users/4/suppliers")
+    @GET("/users/2/suppliers")
     Call<List<SupplierResponse>> getSuppliers();
 }

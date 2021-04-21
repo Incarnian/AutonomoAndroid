@@ -26,6 +26,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        hml {
+                buildConfigField("String", "BASE_URL", "\"https://a1591786980f.ngrok.io\"")
+        }
+    }
 }
 
 dependencies {

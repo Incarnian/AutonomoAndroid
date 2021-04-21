@@ -14,11 +14,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.cursojava.appautonomo.R;
+import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.backend_request.ProductClient;
 import com.cursojava.appautonomo.backend_request.SupplierClient;
 import com.cursojava.appautonomo.model.ProductRequest;
 import com.cursojava.appautonomo.model.ProductResponse;
 import com.cursojava.appautonomo.model.SupplierResponse;
+import com.cursojava.appautonomo.products_management.ProductsActivity;
 
 import java.util.List;
 
@@ -39,7 +41,6 @@ public class CreateProductActivity extends AppCompatActivity {
     private Button btnCadastro;
     private ImageView btnExit;
     private ArrayAdapter<SupplierResponse> suppliers;
-    private Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,18 +59,13 @@ public class CreateProductActivity extends AppCompatActivity {
 
         btnCadastro = findViewById(R.id.btn_cadastrar);
         btnCadastro.setOnClickListener(v -> cadastrarProduto());
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://f426abf38341.ngrok.io")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
     }
 
     @Override
     protected void onStart() {
 
         // Suppliers Request
-        SupplierClient supplierClient = retrofit.create(SupplierClient.class);
+        SupplierClient supplierClient = HttpClient.getInstance();
 
         Call<List<SupplierResponse>> allSuppliers = supplierClient.getSuppliers();
 
@@ -120,7 +116,7 @@ public class CreateProductActivity extends AppCompatActivity {
     private void cadastrarProduto() {
 
         // Products Request
-        ProductClient productClient = retrofit.create(ProductClient.class);
+        ProductClient productClient = HttpClient.getInstance();
 
         ProductRequest produtoAserSalvo = new ProductRequest();
             produtoAserSalvo.setName(productName.getText().toString());
