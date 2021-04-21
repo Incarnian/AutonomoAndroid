@@ -2,58 +2,66 @@ package com.cursojava.appautonomo.model;
 
 public class ProductRequest {
 
-    private String name;
-    private Double price;
-    private String description;
-    private String measurement;
-    private Integer quantity;
-    private Long supplierId;
+    private final String name;
+    private final Double price;
+    private final String description;
+    private final String measurement;
+    private final Integer quantity;
+    private final Long supplierId;
 
-    public ProductRequest() {
+    private ProductRequest(Builder builder) {
+        this.name = builder.name;
+        this.price = builder.price;
+        this.description = builder.description;
+        this.measurement = builder.measurement;
+        this.quantity = builder.quantity;
+        this.supplierId = builder.supplierId;
     }
 
-    public ProductRequest(String name, Double price, String description, String measurement, Integer quantity, Long supplierId) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.measurement = measurement;
-        this.quantity = quantity;
-        this.supplierId = supplierId;
+    public static class Builder {
+
+        private String name;
+        private Double price;
+        private String description;
+        private String measurement;
+        private Integer quantity;
+        private Long supplierId;
+
+        public Builder setName(final String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setPrice(final Double price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder setDescription(final String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder setMeasurement(final String measurement) {
+            this.measurement = measurement;
+            return this;
+        }
+
+        public Builder setQuantity(final Integer quantity) {
+            this.quantity = quantity;
+            return this;
+        }
+
+        public Builder setSupplierId(final Long supplierId) {
+            this.supplierId = supplierId;
+            return this;
+        }
+
+        public ProductRequest build() {
+            return new ProductRequest(this);
+        }
+
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setMeasurement(String measurement) {
-        this.measurement = measurement;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public void setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductRequest{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", measurement='" + measurement + '\'' +
-                ", quantity=" + quantity +
-                ", supplierId='" + supplierId + '\'' +
-                '}';
-    }
 }

@@ -7,12 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.cursojava.appautonomo.BuildConfig;
 import com.cursojava.appautonomo.R;
 import com.cursojava.appautonomo.adapters.ProductsAdapter;
-import com.cursojava.appautonomo.backend_request.BackendRequests;
 import com.cursojava.appautonomo.backend_request.HttpClient;
-import com.cursojava.appautonomo.backend_request.ProductClient;
+import com.cursojava.appautonomo.backend_request.ProductCall;
 import com.cursojava.appautonomo.model.ProductResponse;
 
 import java.util.List;
@@ -20,8 +18,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProductsActivity extends AppCompatActivity {
 
@@ -40,9 +36,9 @@ public class ProductsActivity extends AppCompatActivity {
         addProductBtn.setOnClickListener(v -> onAddNewProduct());
 
 
-        ProductClient requests = HttpClient.getInstance();
+        ProductCall requests = HttpClient.getInstance();
 
-        Call<List<ProductResponse>> productsResponse = requests.getProducts();
+        Call<List<ProductResponse>> productsResponse = requests.readProducts();
 
         productsResponse.enqueue(new Callback<List<ProductResponse>>() {
 

@@ -7,7 +7,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface SupplierClient {
+public interface SupplierCall {
     @GET("/users/2/suppliers")
     Call<List<SupplierResponse>> getSuppliers();
 }

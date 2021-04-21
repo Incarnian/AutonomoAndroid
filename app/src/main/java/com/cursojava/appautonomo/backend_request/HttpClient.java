@@ -7,24 +7,24 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HttpClient {
 
-    private static BackendRequests instance;
+    private static BackendCalls instance;
 
     public static final String BASE_URL = BuildConfig.BASE_URL;
 
-    public static BackendRequests getInstance() {
+    public static BackendCalls getInstance() {
         return instance == null ? initialize() : instance;
     }
 
-    public static BackendRequests initialize() {
+    public static BackendCalls initialize() {
         instance = buildHttpClient();
         return instance;
     }
 
-    private static BackendRequests buildHttpClient() {
+    private static BackendCalls buildHttpClient() {
         return new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(BackendRequests.class);
+                .create(BackendCalls.class);
     }
 }

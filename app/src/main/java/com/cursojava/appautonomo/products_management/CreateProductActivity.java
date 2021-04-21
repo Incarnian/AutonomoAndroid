@@ -15,20 +15,17 @@ import android.widget.Toast;
 
 import com.cursojava.appautonomo.R;
 import com.cursojava.appautonomo.backend_request.HttpClient;
-import com.cursojava.appautonomo.backend_request.ProductClient;
-import com.cursojava.appautonomo.backend_request.SupplierClient;
+import com.cursojava.appautonomo.backend_request.ProductCall;
+import com.cursojava.appautonomo.backend_request.SupplierCall;
 import com.cursojava.appautonomo.model.ProductRequest;
 import com.cursojava.appautonomo.model.ProductResponse;
 import com.cursojava.appautonomo.model.SupplierResponse;
-import com.cursojava.appautonomo.products_management.ProductsActivity;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CreateProductActivity extends AppCompatActivity {
 
@@ -65,9 +62,9 @@ public class CreateProductActivity extends AppCompatActivity {
     protected void onStart() {
 
         // Suppliers Request
-        SupplierClient supplierClient = HttpClient.getInstance();
+        SupplierCall supplierCall = HttpClient.getInstance();
 
-        Call<List<SupplierResponse>> allSuppliers = supplierClient.getSuppliers();
+        Call<List<SupplierResponse>> allSuppliers = supplierCall.getSuppliers();
 
         super.onStart();
         allSuppliers.enqueue(new Callback<List<SupplierResponse>>() {
@@ -116,18 +113,20 @@ public class CreateProductActivity extends AppCompatActivity {
     private void cadastrarProduto() {
 
         // Products Request
-        ProductClient productClient = HttpClient.getInstance();
+        ProductCall productCall = HttpClient.getInstance();
 
-        ProductRequest produtoAserSalvo = new ProductRequest();
-            produtoAserSalvo.setName(productName.getText().toString());
-            produtoAserSalvo.setDescription(productDescription.getText().toString());
-            produtoAserSalvo.setPrice(Double.parseDouble(productPrice.getText().toString()));
-            produtoAserSalvo.setMeasurement(productMeasurement.getText().toString());
-            produtoAserSalvo.setQuantity(Integer.parseInt(productQuantity.getText().toString()));
-            SupplierResponse supplier = (SupplierResponse)spinnerSupplier.getSelectedItem();
-            produtoAserSalvo.setSupplierId(supplier.getId());
+        SupplierResponse supplier = (SupplierResponse) spinnerSupplier.getSelectedItem();
+        ProductRequest produtoAserSalvo =
+                new ProductRequest.Builder()
+                        .setName(productName.getText().toString())
+                        .setDescription(productDescription.getText().toString())
+                        .setPrice(Double.parseDouble(productPrice.getText().toString()))
+                        .setMeasurement(productMeasurement.getText().toString())
+                        .setQuantity(Integer.parseInt(productQuantity.getText().toString()))
+                        .setSupplierId(supplier.getId())
+                        .build();
 
-        Call<ProductResponse> produtoCadastrado = productClient.saveProduct(produtoAserSalvo);
+        Call<ProductResponse> produtoCadastrado = productCall.createProduct(produtoAserSalvo);
 
         produtoCadastrado.enqueue(new Callback<ProductResponse>() {
             @Override

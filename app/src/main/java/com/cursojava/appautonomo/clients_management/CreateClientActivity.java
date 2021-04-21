@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.cursojava.appautonomo.R;
-import com.cursojava.appautonomo.backend_request.ProductClient;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CreateClientActivity extends AppCompatActivity {
 
@@ -30,11 +27,6 @@ public class CreateClientActivity extends AppCompatActivity {
     }
 
     private void saveClient() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://e39b06d47541.ngrok.io")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ProductClient productClient = retrofit.create(ProductClient.class);
+        Toast.makeText(this, "Clicou no botão criar cliente", Toast.LENGTH_LONG).show();
     }
 }
