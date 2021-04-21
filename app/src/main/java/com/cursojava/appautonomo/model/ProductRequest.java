@@ -27,32 +27,32 @@ public class ProductRequest {
         private Integer quantity;
         private Long supplierId;
 
-        public Builder setName(final String name) {
+        public Builder name(final String name) {
             this.name = name;
             return this;
         }
 
-        public Builder setPrice(final Double price) {
+        public Builder price(final Double price) {
             this.price = price;
             return this;
         }
 
-        public Builder setDescription(final String description) {
+        public Builder description(final String description) {
             this.description = description;
             return this;
         }
 
-        public Builder setMeasurement(final String measurement) {
+        public Builder measurement(final String measurement) {
             this.measurement = measurement;
             return this;
         }
 
-        public Builder setQuantity(final Integer quantity) {
+        public Builder quantity(final Integer quantity) {
             this.quantity = quantity;
             return this;
         }
 
-        public Builder setSupplierId(final Long supplierId) {
+        public Builder supplierId(final Long supplierId) {
             this.supplierId = supplierId;
             return this;
         }

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cursojava.appautonomo.R;
+import com.cursojava.appautonomo.model.ClientRequest;
 
 public class CreateClientActivity extends AppCompatActivity {
 
@@ -27,6 +28,16 @@ public class CreateClientActivity extends AppCompatActivity {
     }
 
     private void saveClient() {
+
+
+        ClientRequest client = new ClientRequest.Builder()
+                                            .name()
+                                            .email()
+                                            .cpf()
+                                            .address()
+                                            .phone()
+                                            .build();
+
         Toast.makeText(this, "Clicou no botão criar cliente", Toast.LENGTH_LONG).show();
     }
 }

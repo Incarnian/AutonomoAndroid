@@ -1,52 +1,55 @@
 package com.cursojava.appautonomo.model;
-
 public class Address {
-    private String street;
 
-    private String city;
+    private final String street;
+    private final String city;
+    private final Integer number;
+    private final String cep;
+    private final String neighborhood;
 
-    private Integer number;
-
-    private String cep;
-
-    public Address() {}
-
-    public Address(String street, String city, Integer number, String cep) {
-        this.street = street;
-        this.city = city;
-        this.number = number;
-        this.cep = cep;
+    private Address(Builder builder){
+        this.street= builder.street;
+        this.city = builder.city;
+        this.number = builder.number;
+        this.cep = builder.cep;
+        this.neighborhood = builder.neighborhood;
     }
 
-    public String getStreet() {
-        return street;
-    }
+    public static class Builder {
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+        private String street;
+        private String city;
+        private Integer number;
+        private String cep;
+        private String neighborhood;
 
-    public String getCity() {
-        return city;
-    }
+        public Builder street(final String street) {
+            this.street = street;
+            return this;
+        }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+        public Builder city(final String city) {
+            this.city = city;
+            return this;
+        }
 
-    public Integer getNumber() {
-        return number;
-    }
+        public Builder number(final Integer number) {
+            this.number = number;
+            return this;
+        }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
+        public Builder cep(final String cep) {
+            this.cep = cep;
+            return this;
+        }
 
-    public String getCep() {
-        return cep;
-    }
+        public Builder neighborhood(final String neighborhood) {
+            this.neighborhood = neighborhood;
+            return this;
+        }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+        public Address build() {
+            return new Address(this);
+        }
     }
 }

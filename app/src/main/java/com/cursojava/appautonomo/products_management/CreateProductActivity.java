@@ -115,15 +115,16 @@ public class CreateProductActivity extends AppCompatActivity {
         // Products Request
         ProductCall productCall = HttpClient.getInstance();
 
+        // Creating ProductRequest
         SupplierResponse supplier = (SupplierResponse) spinnerSupplier.getSelectedItem();
         ProductRequest produtoAserSalvo =
                 new ProductRequest.Builder()
-                        .setName(productName.getText().toString())
-                        .setDescription(productDescription.getText().toString())
-                        .setPrice(Double.parseDouble(productPrice.getText().toString()))
-                        .setMeasurement(productMeasurement.getText().toString())
-                        .setQuantity(Integer.parseInt(productQuantity.getText().toString()))
-                        .setSupplierId(supplier.getId())
+                        .name(productName.getText().toString())
+                        .description(productDescription.getText().toString())
+                        .price(Double.parseDouble(productPrice.getText().toString()))
+                        .measurement(productMeasurement.getText().toString())
+                        .quantity(Integer.parseInt(productQuantity.getText().toString()))
+                        .supplierId(supplier.getId())
                         .build();
 
         Call<ProductResponse> produtoCadastrado = productCall.createProduct(produtoAserSalvo);
