@@ -30,7 +30,7 @@ android {
     flavorDimensions "default"
     productFlavors {
         hml {
-                buildConfigField("String", "BASE_URL", "\"https://a1591786980f.ngrok.io\"")
+                buildConfigField("String", "BASE_URL", "\"https://d6c42b6b4caa.ngrok.io\"")
         }
     }
 }
