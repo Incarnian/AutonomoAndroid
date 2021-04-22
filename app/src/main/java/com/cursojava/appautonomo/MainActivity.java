@@ -2,6 +2,7 @@ package com.cursojava.appautonomo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private LinearLayout productsLayout;
     private LinearLayout clientsLayout;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private void goToProductsActivity() {
         Intent intent = new Intent(this, ProductsActivity.class);
         startActivity(intent);
+
+
     }
     private void goToClientsActivity() {
         Intent intent = new Intent(this, ClientsActivity.class);
