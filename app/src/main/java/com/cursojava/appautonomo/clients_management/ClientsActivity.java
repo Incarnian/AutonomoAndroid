@@ -25,7 +25,6 @@ public class ClientsActivity extends AppCompatActivity {
     private RecyclerView clientsRecyclerView;
     private List<ClientResponse> clients;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

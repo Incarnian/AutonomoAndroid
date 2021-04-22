@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+import com.cursojava.appautonomo.clients_management.ClientsActivity;
 import com.cursojava.appautonomo.clients_management.CreateClientActivity;
 import com.cursojava.appautonomo.products_management.ProductsActivity;
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void goToClientsActivity() {
-        Intent intent = new Intent(this, CreateClientActivity.class);
+        Intent intent = new Intent(this, ClientsActivity.class);
         startActivity(intent);
     }
 }

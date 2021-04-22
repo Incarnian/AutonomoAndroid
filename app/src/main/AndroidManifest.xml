@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppAutonomo">
         <activity android:name=".clients_management.CreateClientActivity"></activity>
+        <activity android:name=".clients_management.ClientsActivity"/>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".products_management.CreateProductActivity" />
