@@ -47,9 +47,9 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientsL
 
     public class ClientsListViewHolder extends RecyclerView.ViewHolder {
 
-        TextView nome;
-        TextView telefone;
-        TextView cpf;
+        private TextView nome;
+        private TextView telefone;
+        private TextView cpf;
         //ImageView foto;
 
         public ClientsListViewHolder(@NonNull View clientListItem) {

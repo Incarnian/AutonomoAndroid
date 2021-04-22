@@ -12,9 +12,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ClientCall {
-    @GET("/users/2/products")
+    @GET("/users/4/clients")
     Call<List<ClientResponse>> readClients();
 
-    @POST("/users/2/clients")
+    @POST("/users/4/clients")
     Call<ClientResponse> createClient(@Body ClientRequest clientRequest);
 }
