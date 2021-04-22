@@ -6,13 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/back_arrow"
+            android:id="@+id/clients_back_arrow"
             android:layout_width="32dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_arrow_back"
@@ -39,6 +44,20 @@
         android:id="@+id/recycler_clients"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/bar"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     />
+    <ImageView
+        android:id="@+id/add_client_btn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/ic_add_client"
+        app:tint="@color/colorWhite"
+        android:background="@drawable/blue_circle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginRight="32dp"
+        android:scaleType="center"/>
+    </RelativeLayout>
 </LinearLayout>
