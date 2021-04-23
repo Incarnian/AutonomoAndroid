@@ -12,6 +12,7 @@
         android:theme="@style/Theme.AppAutonomo">
         <activity android:name = ".suppliers_management.CreateSupplierActivity"/>
         <activity android:name=".clients_management.CreateClientActivity"></activity>
+        <activity android:name=".Options"></activity>
         <activity android:name=".clients_management.ClientsActivity"/>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity" />

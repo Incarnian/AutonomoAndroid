@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDivider"
+    tools:context=".OptionsActivity">
+
+    // header
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeaderOptionsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/exit_btnOptions"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+
+            android:src="@drawable/ic_exit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorWhite"></ImageView>
+
+
+        <ImageView
+            android:id="@+id/imageMenuOptions"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textOptionsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+
+            android:layout_marginTop="16dp"
+            android:text="Opções"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exit_btnOptions" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    // finish header
+
+    // body
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeaderOptionsBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/colorWhite"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeaderOptionsHeader">
+
+        <Button
+            android:id="@+id/textOptionsPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/colorWhite"
+            android:clickable="true"
+            android:textAlignment="textStart"
+
+            android:layout_marginTop="10dp"
+            android:text="Perfil"
+            android:textColor="@color/colorLightBlack"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="start"></Button>
+
+        <Button
+            android:id="@+id/textOptionsTools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/colorWhite"
+            android:clickable="true"
+            android:textAlignment="textStart"
+
+            android:layout_marginTop="10dp"
+            android:text="Ferramentas"
+            android:textColor="@color/colorLightBlack"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textOptionsPerfil"
+            android:layout_gravity="start"
+            android:gravity="start"></Button>
+
+        <Button
+            android:id="@+id/textOptionsConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/colorWhite"
+            android:clickable="true"
+            android:textAlignment="textStart"
+
+            android:layout_marginTop="10dp"
+            android:text="Configurações"
+            android:textColor="@color/colorLightBlack"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textOptionsTools"
+            android:gravity="start"></Button>
+
+        <Button
+            android:id="@+id/textOptionsLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorWhite"
+            android:textAlignment="textStart"
+            android:shadowColor="@color/colorDarkGray"
+            android:clickable="true"
+            android:text="Logout"
+            android:textColor="@color/colorLightBlack"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textOptionsConfig"
+            android:gravity="start"></Button>
+
+        <!--
+    <TextView
+    android:id="@+id/textOptionsPerfil"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+
+    android:layout_marginTop="50dp"
+    android:text="Opções"
+    android:textColor="@color/colorWhite"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    ></TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    !-->
+        // finish body
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

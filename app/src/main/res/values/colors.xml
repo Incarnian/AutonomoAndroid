@@ -13,6 +13,7 @@
     <color name="colorProduct">#222227</color>
     <color name="colorDarkGray">#404040</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorLightBlack">#222222</color>
     <color name="colorGray">#818181</color>
     <color name="colorLightGray">#C8C8C8</color>
     <color name="colorBackgroundTransparent">#95EBEBEB</color>
