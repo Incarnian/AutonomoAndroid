@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDivider"
-    tools:context=".OptionsActivity">
+    tools:context=".Options">
 
     // header
 
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@id/layoutHeaderOptionsHeader">
 
         <Button
-            android:id="@+id/textOptionsPerfil"
+            android:id="@+id/btn_OptionsProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -99,7 +99,7 @@
             android:gravity="start"></Button>
 
         <Button
-            android:id="@+id/textOptionsTools"
+            android:id="@+id/btn_OptionsTools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -114,12 +114,12 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textOptionsPerfil"
+            app:layout_constraintTop_toBottomOf="@id/btn_OptionsProfile"
             android:layout_gravity="start"
             android:gravity="start"></Button>
 
         <Button
-            android:id="@+id/textOptionsConfig"
+            android:id="@+id/btn_OptionsConfig"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -134,11 +134,11 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textOptionsTools"
+            app:layout_constraintTop_toBottomOf="@id/btn_OptionsTools"
             android:gravity="start"></Button>
 
         <Button
-            android:id="@+id/textOptionsLogout"
+            android:id="@+id/btn_OptionsLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -153,28 +153,11 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textOptionsConfig"
+            app:layout_constraintTop_toBottomOf="@id/btn_OptionsConfig"
             android:gravity="start"></Button>
 
-        <!--
-    <TextView
-    android:id="@+id/textOptionsPerfil"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginLeft="16dp"
-
-    android:layout_marginTop="50dp"
-    android:text="Opções"
-    android:textColor="@color/colorWhite"
-    android:textSize="25sp"
-    android:textStyle="bold"
-    app:layout_constraintStart_toStartOf="parent"
-    ></TextView>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    !-->
         // finish body
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

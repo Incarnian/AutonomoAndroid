@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout clientsLayout;
     private LinearLayout suppliersLayout;
     private ProgressDialog progressDialog;
+    private LinearLayout options;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         suppliersLayout = findViewById(R.id.layout_suppliers);
         suppliersLayout.setOnClickListener(v -> goToSuppliersActivity());
+
     }
 
     private void goToProductsActivity() {
