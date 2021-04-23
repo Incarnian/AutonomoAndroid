@@ -11,6 +11,7 @@ import com.cursojava.appautonomo.clients_management.ClientsActivity;
 import com.cursojava.appautonomo.clients_management.CreateClientActivity;
 import com.cursojava.appautonomo.products_management.ProductsActivity;
 import com.cursojava.appautonomo.suppliers_management.CreateSupplierActivity;
+import com.cursojava.appautonomo.suppliers_management.SuppliersActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //Alterar pra ir pra lista de suppliers
     private void goToSuppliersActivity() {
-        Intent intent = new Intent(this, CreateSupplierActivity.class);
+        Intent intent = new Intent(this, SuppliersActivity.class);
         startActivity(intent);
     }
 }
