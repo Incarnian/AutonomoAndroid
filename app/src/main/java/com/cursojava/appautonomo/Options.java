@@ -1,5 +1,8 @@
 package com.cursojava.appautonomo;
 
-public class Options {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Options extends AppCompatActivity {
+
 
 }
