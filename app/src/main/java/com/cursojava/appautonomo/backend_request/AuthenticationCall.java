@@ -15,5 +15,5 @@ public interface AuthenticationCall {
 
     /*SIGN IN*/
     @POST("/auth/login")
-    Call<Boolean> signIn(@Body Login credentials);
+    Call<UserResponse> signIn(@Body Login credentials);
 }

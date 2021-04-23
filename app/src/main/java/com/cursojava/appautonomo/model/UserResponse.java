@@ -1,6 +1,8 @@
 package com.cursojava.appautonomo.model;
 
-public class UserResponse {
+import java.io.Serializable;
+
+public class UserResponse implements Serializable {
     private Long id;
     private String email;
     private String name;

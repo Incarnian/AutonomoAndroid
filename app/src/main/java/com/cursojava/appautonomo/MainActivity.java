@@ -3,12 +3,15 @@ package com.cursojava.appautonomo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.cursojava.appautonomo.clients_management.ClientsActivity;
 import com.cursojava.appautonomo.clients_management.CreateClientActivity;
+import com.cursojava.appautonomo.model.UserResponse;
 import com.cursojava.appautonomo.products_management.ProductsActivity;
 import com.cursojava.appautonomo.suppliers_management.CreateSupplierActivity;
 import com.cursojava.appautonomo.suppliers_management.SuppliersActivity;
@@ -19,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout clientsLayout;
     private LinearLayout suppliersLayout;
     private LinearLayout optionsLayout;
+
+    private TextView userName;
     private ProgressDialog progressDialog;
 
 
@@ -38,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
         optionsLayout = findViewById(R.id.layout_options);
         optionsLayout.setOnClickListener(v -> goToOptionsActivity());
+
+        userName = findViewById(R.id.user_name);
+
+        Intent intent = getIntent();
+        UserResponse user = (UserResponse) intent.getSerializableExtra("user");
+
+        if(user != null) {
+            userName.setText(user.getName());
+        }
 
     }
 
