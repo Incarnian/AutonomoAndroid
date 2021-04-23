@@ -69,12 +69,12 @@ public class ClientsActivity extends AppCompatActivity {
                     clientsRecyclerView.setHasFixedSize(true);
 
                     //Fecha o progressDialog quando obtém resposta
-                    progressDialog.hide();
+                    progressDialog.dismiss();
 
                 }
                 else{
                     //Fecha o progressDialog caso não obter resposta, sai da tela e mostra um Toast
-                    progressDialog.hide();
+                    progressDialog.dismiss();
                     finish();
                     Toast.makeText(getApplicationContext(),"Não foi possível receber as informações do banco de dados",Toast.LENGTH_SHORT).show();
                 }

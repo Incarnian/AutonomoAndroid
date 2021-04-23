@@ -228,7 +228,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layout04"
+                android:id="@+id/layout_suppliers"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -316,7 +316,7 @@
                 android:padding="15dp"
                 app:layout_constraintDimensionRatio="H,1;1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout04">
+                app:layout_constraintTop_toBottomOf="@id/layout_suppliers">
 
                 <ImageView
                     android:layout_width="100dp"

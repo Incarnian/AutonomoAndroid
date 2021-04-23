@@ -10,11 +10,13 @@ import android.widget.LinearLayout;
 import com.cursojava.appautonomo.clients_management.ClientsActivity;
 import com.cursojava.appautonomo.clients_management.CreateClientActivity;
 import com.cursojava.appautonomo.products_management.ProductsActivity;
+import com.cursojava.appautonomo.suppliers_management.CreateSupplierActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout productsLayout;
     private LinearLayout clientsLayout;
+    private LinearLayout suppliersLayout;
     private ProgressDialog progressDialog;
 
     @Override
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         clientsLayout = findViewById(R.id.layout_clients);
         clientsLayout.setOnClickListener(v -> goToClientsActivity());
+
+        suppliersLayout = findViewById(R.id.layout_suppliers);
+        suppliersLayout.setOnClickListener(v -> goToSuppliersActivity());
     }
 
     private void goToProductsActivity() {
@@ -37,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void goToClientsActivity() {
         Intent intent = new Intent(this, ClientsActivity.class);
+        startActivity(intent);
+    }
+    //Alterar pra ir pra lista de suppliers
+    private void goToSuppliersActivity() {
+        Intent intent = new Intent(this, CreateSupplierActivity.class);
         startActivity(intent);
     }
 }
