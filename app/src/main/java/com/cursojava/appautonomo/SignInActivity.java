@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cursojava.appautonomo.backend_request.AuthenticationCall;
@@ -20,6 +21,7 @@ import retrofit2.Response;
 public class SignInActivity extends AppCompatActivity {
 
     private Button btnSignIn;
+    private TextView btnSignUp;
     private EditText userEmail;
     private EditText userPassword;
 
@@ -33,6 +35,13 @@ public class SignInActivity extends AppCompatActivity {
 
         btnSignIn = findViewById(R.id.btn_signin);
         btnSignIn.setOnClickListener(v -> sendCredentials());
+
+        btnSignUp = findViewById(R.id.btn_signup);
+        btnSignUp.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void sendCredentials() {

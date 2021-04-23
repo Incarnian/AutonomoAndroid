@@ -166,13 +166,15 @@
                     android:text="Não tem uma conta?"
                     android:textColor="@color/colorBackground">
                 </TextView>
+
                 <TextView
+                    android:id="@+id/btn_signup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
-                    android:textSize="18dp"
                     android:text="Clique aqui"
-                    android:textColor="#2F5594">
+                    android:textColor="#2F5594"
+                    android:textSize="18dp">
 
                 </TextView>
             </LinearLayout>
