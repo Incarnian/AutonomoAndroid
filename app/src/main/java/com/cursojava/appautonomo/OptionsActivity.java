@@ -7,9 +7,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cursojava.appautonomo.suppliers_management.CreateSupplierActivity;
-
-public class Options extends AppCompatActivity {
+public class OptionsActivity extends AppCompatActivity {
 
     private ImageView exit;
     private ImageView menuOptions;
