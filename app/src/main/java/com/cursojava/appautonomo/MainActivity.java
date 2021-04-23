@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout productsLayout;
     private LinearLayout clientsLayout;
     private LinearLayout suppliersLayout;
+    private LinearLayout optionsLayout;
     private ProgressDialog progressDialog;
-    private LinearLayout options;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
         suppliersLayout = findViewById(R.id.layout_suppliers);
         suppliersLayout.setOnClickListener(v -> goToSuppliersActivity());
 
+        optionsLayout = findViewById(R.id.layout_options);
+        optionsLayout.setOnClickListener(v -> goToOptionsActivity());
+
     }
+
+
 
     private void goToProductsActivity() {
         Intent intent = new Intent(this, ProductsActivity.class);
@@ -50,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
     //Alterar pra ir pra lista de suppliers
     private void goToSuppliersActivity() {
         Intent intent = new Intent(this, SuppliersActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToOptionsActivity() {
+        Intent intent = new Intent(this, OptionsActivity.class);
         startActivity(intent);
     }
 }
