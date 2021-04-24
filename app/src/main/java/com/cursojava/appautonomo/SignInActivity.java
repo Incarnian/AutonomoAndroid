@@ -3,6 +3,7 @@ package com.cursojava.appautonomo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,8 @@ import com.cursojava.appautonomo.backend_request.AuthenticationCall;
 import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.model.Login;
 import com.cursojava.appautonomo.model.UserResponse;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,6 +27,8 @@ public class SignInActivity extends AppCompatActivity {
     private TextView btnSignUp;
     private EditText userEmail;
     private EditText userPassword;
+
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +63,17 @@ public class SignInActivity extends AppCompatActivity {
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if(response.isSuccessful()) {
                     if(response.code() == 200) {
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            intent.putExtra("user", response.body());
-                            startActivity(intent);
-                            finish();
+
+                        UserResponse user = response.body();
+                        sp.edit()
+                                .putLong(Constants.USER_ID, user.getId())
+                                .putString(Constants.USER_NAME, user.getName())
+                                .putBoolean(Constants.FIRST_LOGIN, false)
+                                .apply();
+
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }
                 else {

@@ -3,6 +3,7 @@ package com.cursojava.appautonomo.products_management;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +21,8 @@ import com.cursojava.appautonomo.backend_request.SupplierCall;
 import com.cursojava.appautonomo.model.ProductRequest;
 import com.cursojava.appautonomo.model.ProductResponse;
 import com.cursojava.appautonomo.model.SupplierResponse;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 import java.util.List;
 
@@ -38,6 +41,7 @@ public class CreateProductActivity extends AppCompatActivity {
     private Button btnCadastro;
     private ImageView btnExit;
     private ArrayAdapter<SupplierResponse> suppliers;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +68,7 @@ public class CreateProductActivity extends AppCompatActivity {
         // Suppliers Request
         SupplierCall supplierCall = HttpClient.getInstance();
 
-        Call<List<SupplierResponse>> allSuppliers = supplierCall.getSuppliers();
+        Call<List<SupplierResponse>> allSuppliers = supplierCall.getSuppliers(sp.getLong(Constants.USER_ID, 0));
 
         super.onStart();
         allSuppliers.enqueue(new Callback<List<SupplierResponse>>() {
@@ -127,7 +131,7 @@ public class CreateProductActivity extends AppCompatActivity {
                         .supplierId(supplier.getId())
                         .build();
 
-        Call<ProductResponse> produtoCadastrado = productCall.createProduct(produtoAserSalvo);
+        Call<ProductResponse> produtoCadastrado = productCall.createProduct(sp.getLong(Constants.USER_ID, 0) ,produtoAserSalvo);
 
         produtoCadastrado.enqueue(new Callback<ProductResponse>() {
             @Override

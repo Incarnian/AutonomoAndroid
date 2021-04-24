@@ -1,5 +1,6 @@
 package com.cursojava.appautonomo.suppliers_management;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.Button;
@@ -17,6 +18,11 @@ import com.cursojava.appautonomo.model.Address;
 import com.cursojava.appautonomo.model.Phone;
 import com.cursojava.appautonomo.model.SupplierRequest;
 import com.cursojava.appautonomo.model.SupplierResponse;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +42,7 @@ public class CreateSupplierActivity extends AppCompatActivity {
     private Button createSupplier;
     private ImageView exitBtn;
     //private EditText supplierUF;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
 
     @Override
@@ -74,12 +81,13 @@ public class CreateSupplierActivity extends AppCompatActivity {
                                                 .name(supplierName.getText().toString())
                                                 .cnpj(supplierCNPJ.getText().toString())
                                                 .email(supplierEmail.getText().toString())
-                                                .phone(supplierPhone.getText().toString())
-                                                .address(address).build();
+                                                .phones(Arrays.asList(new Phone(supplierPhone.getText().toString())))
+                                                .address(address)
+                                                .build();
 
         SupplierCall supplierCall = HttpClient.getInstance();
 
-        Call<SupplierResponse> backEndResponse = supplierCall.createSuppliers(supplierToSave);
+        Call<SupplierResponse> backEndResponse = supplierCall.createSuppliers(sp.getLong(Constants.USER_ID, 0L),supplierToSave);
 
         backEndResponse.enqueue(new Callback<SupplierResponse>() {
             @Override

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -15,6 +16,8 @@ import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.backend_request.ProductCall;
 import com.cursojava.appautonomo.clients_management.ClientsActivity;
 import com.cursojava.appautonomo.model.ProductResponse;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class ProductsActivity extends AppCompatActivity {
     private List<ProductResponse> products;
     private ImageView addProductBtn;
     private ProgressDialog progressDialog;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +54,7 @@ public class ProductsActivity extends AppCompatActivity {
 
         ProductCall requests = HttpClient.getInstance();
 
-        Call<List<ProductResponse>> productsResponse = requests.readProducts();
+        Call<List<ProductResponse>> productsResponse = requests.readProducts(sp.getLong(Constants.USER_ID, 0));
 
         productsResponse.enqueue(new Callback<List<ProductResponse>>() {
 

@@ -2,6 +2,7 @@ package com.cursojava.appautonomo.suppliers_management;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,6 +18,8 @@ import com.cursojava.appautonomo.backend_request.SupplierCall;
 import com.cursojava.appautonomo.model.ProductResponse;
 import com.cursojava.appautonomo.model.SupplierResponse;
 import com.cursojava.appautonomo.products_management.ProductsActivity;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 import java.util.List;
 
@@ -30,6 +33,8 @@ public class SuppliersActivity extends AppCompatActivity {
     private List<SupplierResponse> suppliers;
     private ProgressDialog progressDialog;
     private ImageView addSuppliersBtn;
+    private ImageView btnExit;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +54,14 @@ public class SuppliersActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.getWindow().setBackgroundDrawableResource(
                 android.R.color.transparent);
+        btnExit = findViewById(R.id.exit);
+        btnExit.setOnClickListener(v -> {
+            finish();
+        });
 
         SupplierCall requests = HttpClient.getInstance();
 
-        Call<List<SupplierResponse>> suppliersResponse = requests.getSuppliers();
+        Call<List<SupplierResponse>> suppliersResponse = requests.getSuppliers(sp.getLong(Constants.USER_ID, 0));
 
         suppliersResponse.enqueue(new Callback<List<SupplierResponse>>() {
             @Override

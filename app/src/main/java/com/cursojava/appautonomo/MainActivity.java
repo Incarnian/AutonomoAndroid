@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import com.cursojava.appautonomo.model.UserResponse;
 import com.cursojava.appautonomo.products_management.ProductsActivity;
 import com.cursojava.appautonomo.suppliers_management.CreateSupplierActivity;
 import com.cursojava.appautonomo.suppliers_management.SuppliersActivity;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout clientsLayout;
     private LinearLayout suppliersLayout;
     private LinearLayout optionsLayout;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     private TextView userName;
     private ProgressDialog progressDialog;
@@ -46,13 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         userName = findViewById(R.id.user_name);
 
-        Intent intent = getIntent();
-        UserResponse user = (UserResponse) intent.getSerializableExtra("user");
-
-        if(user != null) {
-            userName.setText(user.getName());
-        }
-
+        userName.setText(sp.getString(Constants.USER_NAME, "Autonomo"));
     }
 
 

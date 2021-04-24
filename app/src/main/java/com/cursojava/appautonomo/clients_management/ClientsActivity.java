@@ -1,22 +1,22 @@
 package com.cursojava.appautonomo.clients_management;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.cursojava.appautonomo.MainActivity;
 import com.cursojava.appautonomo.R;
 import com.cursojava.appautonomo.adapters.ClientsAdapter;
 import com.cursojava.appautonomo.backend_request.ClientCall;
 import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.model.ClientResponse;
-import com.cursojava.appautonomo.products_management.CreateProductActivity;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 
 import java.util.List;
@@ -32,6 +32,7 @@ public class ClientsActivity extends AppCompatActivity {
     private ImageView addClientButton;
     private ImageView backClientButton;
     private ProgressDialog progressDialog;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +44,12 @@ public class ClientsActivity extends AppCompatActivity {
         addClientButton = findViewById(R.id.add_client_btn);
         addClientButton.setOnClickListener(v -> onAddNewClient());
 
-        backClientButton = findViewById(R.id.clients_back_arrow);
+        backClientButton = findViewById(R.id.exit);
         backClientButton.setOnClickListener(v -> onBackClient());
 
         ClientCall requests = HttpClient.getInstance();
 
-        Call<List<ClientResponse>> clientResponse = requests.readClients();
+        Call<List<ClientResponse>> clientResponse = requests.readClients(sp.getLong(Constants.USER_ID, 0L));
 
         //Criando o progress dialog quando entra na tela
         progressDialog = new ProgressDialog(ClientsActivity.this);

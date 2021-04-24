@@ -1,11 +1,15 @@
 package com.cursojava.appautonomo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 public class OptionsActivity extends AppCompatActivity {
 
@@ -15,9 +19,11 @@ public class OptionsActivity extends AppCompatActivity {
     private Button tools;
     private Button configurations;
     private Button logout;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_options);
 
         exit = findViewById(R.id.exit_btnOptions);
         menuOptions = findViewById(R.id.imageMenuOptions);
@@ -35,6 +41,7 @@ public class OptionsActivity extends AppCompatActivity {
         // Configurations
 
         logout.setOnClickListener( v -> {
+            sp.edit().putBoolean(Constants.FIRST_LOGIN, true).apply();
             Intent intent = new Intent(this, SignInActivity.class);
             startActivity(intent);
         });

@@ -11,11 +11,12 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface SupplierCall {
-    @GET("/users/2/suppliers")
-    Call<List<SupplierResponse>> getSuppliers();
+    @GET("/users/{id}/suppliers")
+    Call<List<SupplierResponse>> getSuppliers(@Path(value = "id") Long id);
 
-    @POST("/users/2/supplierss")
-    Call<SupplierResponse> createSuppliers (@Body SupplierRequest supplierRequest);
+    @POST("/users/{id}/suppliers")
+    Call<SupplierResponse> createSuppliers (@Path(value = "id") Long id, @Body SupplierRequest supplierRequest);
 }

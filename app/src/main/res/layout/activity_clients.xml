@@ -17,7 +17,7 @@
         android:orientation="horizontal"
         android:background="@color/colorPrimary">
         <ImageView
-            android:id="@+id/clients_back_arrow"
+            android:id="@+id/exit"
             android:layout_width="32dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_arrow_back"

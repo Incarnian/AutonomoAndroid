@@ -1,18 +1,20 @@
 package com.cursojava.appautonomo.model;
 
+import java.util.List;
+
 public class SupplierRequest {
 
     private final String name;
     private final String cnpj;
     private final String email;
-    private final String phone;
+    private final List<Phone> phones;
     private final Address address;
 
     private SupplierRequest (Builder builder){
         this.name = builder.name;
         this.cnpj = builder.cnpj;
         this.email = builder.email;
-        this.phone = builder.phone;
+        this.phones = builder.phones;
         this.address = builder.address;
     }
 
@@ -21,7 +23,7 @@ public class SupplierRequest {
         private String name;
         private String cnpj;
         private String email;
-        private String phone;
+        private List<Phone> phones;
         private Address address;
 
         public Builder name (String name){
@@ -39,8 +41,8 @@ public class SupplierRequest {
             return this;
         }
 
-        public Builder phone (String phone){
-            this.phone = phone;
+        public Builder phones (List<Phone> phones){
+            this.phones = phones;
             return this;
         }
 

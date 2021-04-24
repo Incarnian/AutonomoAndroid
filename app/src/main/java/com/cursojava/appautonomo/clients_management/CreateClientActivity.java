@@ -2,6 +2,7 @@ package com.cursojava.appautonomo.clients_management;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.model.Address;
 import com.cursojava.appautonomo.model.ClientRequest;
 import com.cursojava.appautonomo.model.ClientResponse;
+import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +34,7 @@ public class CreateClientActivity extends AppCompatActivity {
     private EditText clientAddressCity;
     private EditText clientAddressCep;
 //    private EditText clientAddressUf;
+    private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
     private ImageView exitBtn;
     private Button createClient;
@@ -80,7 +84,7 @@ public class CreateClientActivity extends AppCompatActivity {
 
         ClientCall clientCall = HttpClient.getInstance();
 
-        Call<ClientResponse> backEndResponse = clientCall.createClient(clientToSave);
+        Call<ClientResponse> backEndResponse = clientCall.createClient(sp.getLong(Constants.USER_ID, 0),clientToSave);
 
         backEndResponse.enqueue(new Callback<ClientResponse>() {
             @Override
