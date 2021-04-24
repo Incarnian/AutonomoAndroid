@@ -16,9 +16,9 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:padding="10dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
 
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -29,45 +29,40 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
 
-            android:src="@drawable/ic_exit"
+            android:src="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/colorWhite"></ImageView>
 
 
-        <ImageView
-            android:id="@+id/imageMenuOptions"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_menu"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textOptionsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="Opções"
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exit_btnOptions" />
+            app:layout_constraintStart_toEndOf="@+id/exit_btnOptions"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     // finish header
 
     // body
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeaderOptionsHeader"
+    >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeaderOptionsBody"
         android:layout_width="match_parent"
@@ -78,6 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutHeaderOptionsHeader">
+
 
         <Button
             android:id="@+id/btn_OptionsProfile"
@@ -157,7 +153,6 @@
             android:gravity="start"></Button>
 
         // finish body
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
