@@ -30,8 +30,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:orientation="vertical"
             android:background="@drawable/backgroudn_sign"
             android:layout_marginBottom="16dp"
@@ -51,17 +51,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Faça o login na sua conta"
-                android:textSize="22sp"
-                android:layout_gravity="center"
-                android:textColor="#3f4658">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:text="Email"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"></TextView>
@@ -79,7 +70,7 @@
             </EditText>
 
             <TextView
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,7 +105,7 @@
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/btn_login"
                 android:text="Entrar"
                 android:textColor="#D8D8D8"
@@ -173,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:text="Clique aqui"
-                    android:textColor="#2F5594"
+                    android:textColor="#1A68E8"
                     android:textSize="18dp">
 
                 </TextView>

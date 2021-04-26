@@ -7,7 +7,7 @@
     <color name="colorPrimaryLight">#1B76D8</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBackground">#0F605D</color>
-    <color name="colorTrendingStart">#6DEEF5</color>
+    <color name="colorTrendingStart">#1E2B71</color>
     <color name="colorTrendingEnd">#466AC9</color>
     <color name="colorDivider">#D6D6D6</color>
     <color name="colorProduct">#222227</color>
@@ -16,5 +16,5 @@
     <color name="colorLightBlack">#222222</color>
     <color name="colorGray">#818181</color>
     <color name="colorLightGray">#C8C8C8</color>
-    <color name="colorBackgroundTransparent">#95EBEBEB</color>
+    <color name="colorBackgroundTransparent">#98EBEBEB</color>
 </resources>

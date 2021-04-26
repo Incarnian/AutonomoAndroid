@@ -2,6 +2,7 @@ package com.cursojava.appautonomo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.cursojava.appautonomo.backend_request.AuthenticationCall;
 import com.cursojava.appautonomo.backend_request.HttpClient;
+import com.cursojava.appautonomo.clients_management.ClientsActivity;
 import com.cursojava.appautonomo.model.Login;
 import com.cursojava.appautonomo.model.UserResponse;
 import com.cursojava.appautonomo.utils.Constants;
@@ -27,6 +29,9 @@ public class SignInActivity extends AppCompatActivity {
     private TextView btnSignUp;
     private EditText userEmail;
     private EditText userPassword;
+    private ProgressDialog progressDialog;
+
+
 
     private SharedPreferences sp = SharedPreferencesUtil.getSharedPreferences();
 
@@ -50,17 +55,23 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void sendCredentials() {
+        progressDialog = new ProgressDialog(SignInActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setBackgroundDrawableResource(
+                android.R.color.transparent
+        );
         AuthenticationCall request = HttpClient.getInstance();
-
         Login login = new Login();
         login.setEmail(userEmail.getText().toString());
         login.setPassword(userPassword.getText().toString());
-
         Call<UserResponse> response = request.signIn(login);
 
         response.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+
                 if(response.isSuccessful()) {
                     if(response.code() == 200) {
 
@@ -70,7 +81,7 @@ public class SignInActivity extends AppCompatActivity {
                                 .putString(Constants.USER_NAME, user.getName())
                                 .putBoolean(Constants.FIRST_LOGIN, false)
                                 .apply();
-
+                        progressDialog.dismiss();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -81,9 +92,11 @@ public class SignInActivity extends AppCompatActivity {
                         case 400:
                         case 401:
                             Toast.makeText(getApplicationContext(),"Email ou senha incorretos", Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
                             break;
                         default:
                             Toast.makeText( getApplicationContext(),"Erro de servidor",Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
                     }
                 }
             }

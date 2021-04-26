@@ -26,7 +26,7 @@ public class OptionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_options);
 
         exit = findViewById(R.id.exit_btnOptions);
-        menuOptions = findViewById(R.id.imageMenuOptions);
+        //menuOptions = findViewById(R.id.imageMenuOptions);
         optionsProfile = findViewById(R.id.btn_OptionsProfile);
         tools = findViewById(R.id.btn_OptionsTools);
         configurations = findViewById(R.id.btn_OptionsConfig);

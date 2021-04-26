@@ -2,6 +2,7 @@ package com.cursojava.appautonomo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText userName;
     private EditText userEmail;
     private EditText userPassword;
+    private ProgressDialog progressDialog;
 
     private Button btnSignUp;
 
@@ -54,7 +56,13 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void createUser() {
         AuthenticationCall request = HttpClient.getInstance();
-
+        progressDialog = new ProgressDialog(SignUpActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setBackgroundDrawableResource(
+                android.R.color.transparent
+        );
         UserRequest userRequest = new UserRequest.Builder()
                 .name(userName.getText().toString())
                 .email(userEmail.getText().toString())
@@ -67,6 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if(response.isSuccessful()) {
+                    progressDialog.dismiss();
                     UserResponse user = response.body();
                     sp.edit()
                             .putLong(Constants.USER_ID, user.getId())
@@ -79,6 +88,7 @@ public class SignUpActivity extends AppCompatActivity {
                     finish();
                 }
                 else {
+                    progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Erro ao criar conta", Toast.LENGTH_LONG).show();
                 }
             }
