@@ -2,7 +2,8 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/sea">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -13,18 +14,22 @@
 
         <ImageView
             android:layout_gravity="center"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_pass"
+            android:src="@drawable/ic_app"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
-            android:orientation="vertical">
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:background="@drawable/backgroudn_sign">
 
             <TextView
                 android:layout_marginTop="20dp"
@@ -39,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="20dp"
                 android:text="Nome"
                 android:textColor="#3f4658"
@@ -52,13 +57,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
-                android:drawableRight="@drawable/ic_user" />
+                android:drawableRight="@drawable/ic"
+                android:drawableTint="@color/colorPrimary"/>
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="20dp"
                 android:text="Email"
                 android:textColor="#3f4658"
@@ -70,14 +76,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
-                android:drawableRight="@drawable/ic_mail">
+                android:drawableRight="@drawable/ic_baseline_email_24"
+                android:drawableTint="@color/colorPrimary">
 
             </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="20dp"
                 android:text="Senha"
                 android:textColor="#3f4658"
@@ -89,7 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
-                android:drawableRight="@drawable/ic_mail"></EditText>
+                android:drawableRight="@drawable/ic_senha"
+                android:drawableTint="@color/colorPrimary"></EditText>
 
             <TextView
                 android:layout_gravity="right"
@@ -97,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Esqueceu a sua senha?"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 android:textColor="#3f4658">
             </TextView>
 
@@ -108,10 +116,11 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_login"
-                android:text="Criar conta"
+                android:text="Criar"
                 android:textColor="#D8D8D8"
-                android:textSize="18dp"></Button>
-
+                android:textSize="18dp"
+                android:layout_marginBottom="16dp"></Button>
+        </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,7 +128,7 @@
                 android:textSize="18dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="14dp"
-                android:textColor="#BC3F4658"
+                android:textColor="@color/colorWhite"
                 >
 
             </TextView>
@@ -132,14 +141,14 @@
                 >
                 <ImageView
                     android:src="@drawable/facebook_logo"
-                    android:layout_width="28dp"
-                    android:layout_height="32dp">
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
                 </ImageView>
                 <ImageView
                     android:layout_marginLeft="18dp"
                     android:src="@drawable/twitter_logo"
-                    android:layout_width="28dp"
-                    android:layout_height="22dp">
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
                 </ImageView>
             </LinearLayout>
             <LinearLayout
@@ -149,12 +158,14 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginBottom="16dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:text="Já tem uma conta?">
+                    android:text="Já tem uma conta?"
+                    android:textColor="@color/colorWhite">
 
                 </TextView>
 
@@ -171,5 +182,4 @@
             </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
 </ScrollView>
