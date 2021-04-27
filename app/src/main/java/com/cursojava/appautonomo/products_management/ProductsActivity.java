@@ -52,6 +52,7 @@ public class ProductsActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 //Edição
+
                             }
 
                             @Override
