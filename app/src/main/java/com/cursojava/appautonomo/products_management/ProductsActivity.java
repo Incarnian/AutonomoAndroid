@@ -7,6 +7,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import com.cursojava.appautonomo.adapters.ProductsAdapter;
 import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.backend_request.ProductCall;
 import com.cursojava.appautonomo.clients_management.ClientsActivity;
+import com.cursojava.appautonomo.helper.RecyclerItemClickListener;
 import com.cursojava.appautonomo.model.ProductResponse;
 import com.cursojava.appautonomo.utils.Constants;
 import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
@@ -39,6 +42,30 @@ public class ProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_products);
 
         productsRecycleView = findViewById(R.id.products_list);
+
+        //Evento de clique
+        productsRecycleView.addOnItemTouchListener(
+                new RecyclerItemClickListener(
+                        getApplicationContext(),
+                        productsRecycleView,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                //Edição
+                            }
+
+                            @Override
+                            public void onLongItemClick(View view, int position) {
+                                //Deleção
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+                        }
+                )
+        );
 
         addProductBtn = findViewById(R.id.add_product_btn);
         addProductBtn.setOnClickListener(v -> onAddNewProduct());
