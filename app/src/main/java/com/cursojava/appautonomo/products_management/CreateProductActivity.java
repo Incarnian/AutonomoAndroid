@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cursojava.appautonomo.R;
@@ -32,11 +33,8 @@ import retrofit2.Response;
 
 public class CreateProductActivity extends AppCompatActivity {
 
-    private EditText productName;
-    private EditText productQuantity;
-    private EditText productDescription;
-    private EditText productPrice;
-    private EditText productMeasurement;
+    private TextView title;
+    private EditText productName, productQuantity, productDescription, productPrice, productMeasurement ;
     private Spinner spinnerSupplier;
     private Button btnCadastro;
     private ImageView btnExit;
@@ -48,6 +46,7 @@ public class CreateProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_product);
 
+        title = findViewById(R.id.title);
         productName = findViewById(R.id.product_name);
         productQuantity = findViewById(R.id.product_quantity);
         productDescription = findViewById(R.id.product_description);
@@ -59,8 +58,105 @@ public class CreateProductActivity extends AppCompatActivity {
         btnExit.setOnClickListener(v -> finish());
 
         btnCadastro = findViewById(R.id.btn_cadastrar);
-        btnCadastro.setOnClickListener(v -> cadastrarProduto());
+
+        ProductResponse productResponse = (ProductResponse) getIntent().getSerializableExtra(Constants.PRODUCT_UPDATE);
+        btnCadastro.setOnClickListener(v -> newProduct(productResponse));
+        if(productResponse != null) {
+            // Edit
+
+            title.setText("Atualizar produto");
+
+            btnCadastro.setText("Atualizar Produto");
+            productName.setText( productResponse.getName() );
+            productQuantity.setText(String.valueOf(productResponse.getQuantity()));
+            productDescription.setText(productResponse.getDescription());
+            productPrice.setText(String.valueOf(productResponse.getPrice()));
+            productMeasurement.setText(productResponse.getMeasurement());
+        }
+        else {
+            //Create
+
+            title.setText("Novo produto");
+
+            btnCadastro.setText("Cadastrar Produto");
+        }
     }
+
+    private void newProduct(ProductResponse productResponse) {
+
+        ProductCall productCall = HttpClient.getInstance();
+        SupplierResponse supplier = (SupplierResponse) spinnerSupplier.getSelectedItem();
+        ProductRequest produtoAserSalvo =
+                new ProductRequest.Builder()
+                        .name(productName.getText().toString())
+                        .description(productDescription.getText().toString())
+                        .price(Double.parseDouble(productPrice.getText().toString()))
+                        .measurement(productMeasurement.getText().toString())
+                        .quantity(Integer.parseInt(productQuantity.getText().toString()))
+                        .supplierId(supplier.getId())
+                        .build();
+
+        if(productResponse != null) {
+            // Edit
+            Call<Void> request;
+
+            request = productCall
+                    .editProduct(sp.getLong(Constants.USER_ID, 0), productResponse.getId(), produtoAserSalvo);
+
+            request.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if(response.isSuccessful()) {
+                        if (response.code() == 200) {
+                            Toast.makeText(getApplicationContext(), "Produto atualizado com sucesso", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    }
+                    else {
+                        if (response.code() == 400) {
+                            Toast.makeText(getApplicationContext(), "Dados invalidos", Toast.LENGTH_LONG).show();
+                        }
+                        else if (response.code() == 500) {
+                            Toast.makeText(getApplicationContext(), "Erro de servidor", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Erro ao falar com o servidor", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+
+        else {
+            // Create
+            Call<ProductResponse> request;
+            request = productCall
+                    .createProduct(sp.getLong(Constants.USER_ID, 0) ,produtoAserSalvo);
+
+            request.enqueue(new Callback<ProductResponse>() {
+                @Override
+                public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
+                    if(response.isSuccessful()) {
+                        if(response.code() == 500) {
+                            Toast.makeText(getApplicationContext(), "Erro ao cadastrar produto", Toast.LENGTH_LONG).show();
+                        } else if (response.code() == 201) {
+                            Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Deu Ruim demais", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<ProductResponse> call, Throwable t) {
+
+                }
+            });
+        }
+    }
+
 
     @Override
     protected void onStart() {
@@ -116,44 +212,7 @@ public class CreateProductActivity extends AppCompatActivity {
 
     private void cadastrarProduto() {
 
-        // Products Request
-        ProductCall productCall = HttpClient.getInstance();
 
-        // Creating ProductRequest
-        SupplierResponse supplier = (SupplierResponse) spinnerSupplier.getSelectedItem();
-        ProductRequest produtoAserSalvo =
-                new ProductRequest.Builder()
-                        .name(productName.getText().toString())
-                        .description(productDescription.getText().toString())
-                        .price(Double.parseDouble(productPrice.getText().toString()))
-                        .measurement(productMeasurement.getText().toString())
-                        .quantity(Integer.parseInt(productQuantity.getText().toString()))
-                        .supplierId(supplier.getId())
-                        .build();
-
-        Call<ProductResponse> produtoCadastrado = productCall.createProduct(sp.getLong(Constants.USER_ID, 0) ,produtoAserSalvo);
-
-        produtoCadastrado.enqueue(new Callback<ProductResponse>() {
-            @Override
-            public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
-                if(response.isSuccessful()) {
-                    if(response.code() == 500) {
-                        Toast.makeText(getApplicationContext(), "Erro ao cadastrar produto", Toast.LENGTH_LONG).show();
-                    } else if (response.code() == 201) {
-                        Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Deu Ruim demais", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ProductResponse> call, Throwable t) {
-
-            }
-        });
     }
 
 }

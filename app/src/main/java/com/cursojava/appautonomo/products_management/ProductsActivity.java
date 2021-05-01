@@ -51,7 +51,11 @@ public class ProductsActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 //Edição
+                                ProductResponse productResponse = products.get(position);
 
+                                Intent intent = new Intent(getApplicationContext(), CreateProductActivity.class);
+                                intent.putExtra(Constants.PRODUCT_UPDATE, productResponse );
+                                startActivity(intent);
                             }
 
                             @Override

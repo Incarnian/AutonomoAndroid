@@ -20,9 +20,9 @@ public interface ProductCall {
     @POST("/users/{id}/products")
     Call<ProductResponse> createProduct(@Path(value = "id") Long id, @Body ProductRequest productRequest);
 
-    @DELETE("/user/{id}/products")
-    Call<ProductResponse> deleteProduct(@Path(value = "id") Long id, @Body ProductRequest productRequest);
+    @DELETE("/users/{id}")
+    Call<ProductResponse> deleteProduct(@Path(value = "id") Long id);
 
-    @PUT("/user/{id}/products")
-    Call<ProductResponse> editProduct(@Path(value = "id") Long id, @Body ProductRequest productRequest);
+    @PUT("/users/{id}/products/{productId}")
+    Call<Void> editProduct(@Path(value = "id") Long id,@Path(value = "productId") Long productId, @Body ProductRequest productRequest);
 }

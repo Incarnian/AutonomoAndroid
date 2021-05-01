@@ -90,7 +90,6 @@ public class ClientsActivity extends AppCompatActivity {
             public void onFailure(Call<List<ClientResponse>> call, Throwable t) {
                 System.out.println("Alguma coisa deu errado");
                 Toast.makeText(getApplicationContext(),"Não foi possível obter as informações necessárias", Toast.LENGTH_LONG);
-
             }
         });
     }

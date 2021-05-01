@@ -1,6 +1,8 @@
 package com.cursojava.appautonomo.model;
 
-public class ProductResponse {
+import java.io.Serializable;
+
+public class ProductResponse implements Serializable {
 
     private Long id;
     private String name;
