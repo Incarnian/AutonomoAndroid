@@ -58,7 +58,16 @@ public class SuppliersActivity extends AppCompatActivity {
         btnExit.setOnClickListener(v -> {
             finish();
         });
+        getSuppliers();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getSuppliers();
+    }
+
+    private void getSuppliers() {
         SupplierCall requests = HttpClient.getInstance();
 
         Call<List<SupplierResponse>> suppliersResponse = requests.getSuppliers(sp.getLong(Constants.USER_ID, 0));
@@ -85,8 +94,7 @@ public class SuppliersActivity extends AppCompatActivity {
                 System.out.println("ERRRRRRRROOOOOOOOOOOOOOOOOOOOO");
             }
         });
-
-        }
+    }
 
 
     private void onAddNewSupplier() {

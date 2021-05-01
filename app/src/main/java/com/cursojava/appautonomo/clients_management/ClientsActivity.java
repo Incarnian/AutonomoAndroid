@@ -47,10 +47,6 @@ public class ClientsActivity extends AppCompatActivity {
         backClientButton = findViewById(R.id.exit);
         backClientButton.setOnClickListener(v -> onBackClient());
 
-        ClientCall requests = HttpClient.getInstance();
-
-        Call<List<ClientResponse>> clientResponse = requests.readClients(sp.getLong(Constants.USER_ID, 0L));
-
         //Criando o progress dialog quando entra na tela
         progressDialog = new ProgressDialog(ClientsActivity.this);
         progressDialog.show();
@@ -59,6 +55,15 @@ public class ClientsActivity extends AppCompatActivity {
         progressDialog.getWindow().setBackgroundDrawableResource(
                 android.R.color.transparent
         );
+
+        getClients();
+
+    }
+
+    private void getClients() {
+        ClientCall requests = HttpClient.getInstance();
+
+        Call<List<ClientResponse>> clientResponse = requests.readClients(sp.getLong(Constants.USER_ID, 0L));
 
         clientResponse.enqueue(new Callback<List<ClientResponse>>() {
             @Override
@@ -89,15 +94,19 @@ public class ClientsActivity extends AppCompatActivity {
             }
         });
     }
-        private void onAddNewClient() {
-            Intent intent = new Intent(this, CreateClientActivity.class);
-            startActivity(intent);
-        }
 
-        private void onBackClient(){
-        finish();
-
-        }
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getClients();
     }
+
+    private void onAddNewClient() {
+        Intent intent = new Intent(this, CreateClientActivity.class);
+        startActivity(intent);
+    }
+
+    private void onBackClient(){
+        finish();
+    }
+}

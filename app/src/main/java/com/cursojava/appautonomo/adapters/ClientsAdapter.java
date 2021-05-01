@@ -39,7 +39,6 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientsL
         holder.cpf.setText(this.clients.get(position).getCpf());
     }
 
-
     @Override
     public int getItemCount() {
         return this.clients.size();
@@ -58,7 +57,6 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.ClientsL
             this.nome = clientListItem.findViewById(R.id.client_name);
             this.telefone = clientListItem.findViewById(R.id.client_phone);
             this.cpf = clientListItem.findViewById(R.id.client_id);
-
         }
     }
 

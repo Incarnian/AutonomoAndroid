@@ -32,8 +32,6 @@ public class OptionsActivity extends AppCompatActivity {
         configurations = findViewById(R.id.btn_OptionsConfig);
         logout = findViewById(R.id.btn_OptionsLogout);
 
-
-
         exit.setOnClickListener(v -> finish());
         // line to menuOptions
         // optionsProfile

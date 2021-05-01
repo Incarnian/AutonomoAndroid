@@ -16,8 +16,7 @@ import com.cursojava.appautonomo.R;
 import com.cursojava.appautonomo.adapters.ProductsAdapter;
 import com.cursojava.appautonomo.backend_request.HttpClient;
 import com.cursojava.appautonomo.backend_request.ProductCall;
-import com.cursojava.appautonomo.clients_management.ClientsActivity;
-import com.cursojava.appautonomo.helper.RecyclerItemClickListener;
+import com.cursojava.appautonomo.utils.RecyclerItemClickListener;
 import com.cursojava.appautonomo.model.ProductResponse;
 import com.cursojava.appautonomo.utils.Constants;
 import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
@@ -80,6 +79,16 @@ public class ProductsActivity extends AppCompatActivity {
                 android.R.color.transparent
         );
 
+        getProducts();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getProducts();
+    }
+
+    private void getProducts() {
         ProductCall requests = HttpClient.getInstance();
 
         Call<List<ProductResponse>> productsResponse = requests.readProducts(sp.getLong(Constants.USER_ID, 0));
