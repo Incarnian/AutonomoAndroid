@@ -83,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity {
                             .putBoolean(Constants.FIRST_LOGIN, false)
                             .apply();
 
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                     startActivity(intent);
                     finish();
                 }

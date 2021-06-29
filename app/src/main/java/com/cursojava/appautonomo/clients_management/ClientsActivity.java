@@ -62,8 +62,9 @@ public class ClientsActivity extends AppCompatActivity {
 
     private void getClients() {
         ClientCall requests = HttpClient.getInstance();
-
-        Call<List<ClientResponse>> clientResponse = requests.readClients(sp.getLong(Constants.USER_ID, 0L));
+        String token = sp.getString(Constants.FULL_TOKEN, "");
+        System.out.println("TOKEN CLIENTS: " + token);
+        Call<List<ClientResponse>> clientResponse = requests.readClients( token ,sp.getLong(Constants.USER_ID, 0L));
 
         clientResponse.enqueue(new Callback<List<ClientResponse>>() {
             @Override

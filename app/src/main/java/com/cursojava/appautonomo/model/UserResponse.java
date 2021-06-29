@@ -3,18 +3,17 @@ package com.cursojava.appautonomo.model;
 import java.io.Serializable;
 
 public class UserResponse implements Serializable {
+
     private Long id;
     private String email;
     private String name;
-    private String password;
 
     public UserResponse() {}
 
-    public UserResponse(Long id, String email, String name, String password) {
+    public UserResponse(Long id, String email, String name) {
         this.id = id;
         this.email = email;
         this.name = name;
-        this.password = password;
     }
 
     public Long getId() {
@@ -41,11 +40,4 @@ public class UserResponse implements Serializable {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

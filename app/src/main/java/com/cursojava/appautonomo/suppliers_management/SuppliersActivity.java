@@ -69,8 +69,9 @@ public class SuppliersActivity extends AppCompatActivity {
 
     private void getSuppliers() {
         SupplierCall requests = HttpClient.getInstance();
+        String token = sp.getString(Constants.FULL_TOKEN, "");
 
-        Call<List<SupplierResponse>> suppliersResponse = requests.getSuppliers(sp.getLong(Constants.USER_ID, 0));
+        Call<List<SupplierResponse>> suppliersResponse = requests.getSuppliers(token, sp.getLong(Constants.USER_ID, 0));
 
         suppliersResponse.enqueue(new Callback<List<SupplierResponse>>() {
             @Override

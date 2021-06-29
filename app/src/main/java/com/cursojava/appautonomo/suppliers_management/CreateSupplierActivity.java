@@ -86,8 +86,9 @@ public class CreateSupplierActivity extends AppCompatActivity {
                                                 .build();
 
         SupplierCall supplierCall = HttpClient.getInstance();
+        String token = sp.getString(Constants.FULL_TOKEN, "");
 
-        Call<SupplierResponse> backEndResponse = supplierCall.createSuppliers(sp.getLong(Constants.USER_ID, 0L),supplierToSave);
+        Call<SupplierResponse> backEndResponse = supplierCall.createSuppliers(token, sp.getLong(Constants.USER_ID, 0L),supplierToSave);
 
         backEndResponse.enqueue(new Callback<SupplierResponse>() {
             @Override

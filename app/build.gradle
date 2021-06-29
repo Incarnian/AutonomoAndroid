@@ -30,7 +30,7 @@ android {
     flavorDimensions "default"
     productFlavors {
         hml {
-                buildConfigField("String", "BASE_URL", "\"https://f0d9f1b3b950.ngrok.io\"")
+                buildConfigField("String", "BASE_URL", "\"https://69d998ef4a47.ngrok.io\"")
         }
     }
 }
@@ -46,5 +46,9 @@ dependencies {
 
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.0'
 
 }

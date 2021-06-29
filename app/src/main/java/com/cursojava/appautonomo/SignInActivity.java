@@ -13,10 +13,11 @@ import android.widget.Toast;
 
 import com.cursojava.appautonomo.backend_request.AuthenticationCall;
 import com.cursojava.appautonomo.backend_request.HttpClient;
-import com.cursojava.appautonomo.clients_management.ClientsActivity;
+import com.cursojava.appautonomo.model.JwtToken;
 import com.cursojava.appautonomo.model.Login;
-import com.cursojava.appautonomo.model.UserResponse;
+import com.cursojava.appautonomo.model.TokenBody;
 import com.cursojava.appautonomo.utils.Constants;
+import com.cursojava.appautonomo.utils.JwtTokenUtil;
 import com.cursojava.appautonomo.utils.SharedPreferencesUtil;
 
 import retrofit2.Call;
@@ -66,44 +67,37 @@ public class SignInActivity extends AppCompatActivity {
         Login login = new Login();
         login.setEmail(userEmail.getText().toString());
         login.setPassword(userPassword.getText().toString());
-        Call<UserResponse> response = request.signIn(login);
-
-        response.enqueue(new Callback<UserResponse>() {
+        Call<JwtToken> response = request.signIn(login);
+        System.out.println(response);
+        response.enqueue(new Callback<JwtToken>() {
             @Override
-            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-
+            public void onResponse(Call<JwtToken> call, Response<JwtToken> response) {
                 if(response.isSuccessful()) {
                     if(response.code() == 200) {
 
-                        UserResponse user = response.body();
+                        TokenBody tokenBody = JwtTokenUtil.decode(response.body());
+
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra(Constants.TOKEN_BODY, tokenBody);
                         sp.edit()
-                                .putLong(Constants.USER_ID, user.getId())
-                                .putString(Constants.USER_NAME, user.getName())
-                                .putBoolean(Constants.FIRST_LOGIN, false)
+                                .putLong(Constants.USER_ID, Long.parseLong(tokenBody.getSub()))
+                                .putString(Constants.FULL_TOKEN, response.body().getValue())
                                 .apply();
                         progressDialog.dismiss();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
                         startActivity(intent);
                         finish();
                     }
                 }
                 else {
-                    switch (response.code()) {
-                        case 400:
-                        case 401:
-                            Toast.makeText(getApplicationContext(),"Email ou senha incorretos", Toast.LENGTH_LONG).show();
-                            progressDialog.dismiss();
-                            break;
-                        default:
-                            Toast.makeText( getApplicationContext(),"Erro de servidor",Toast.LENGTH_LONG).show();
-                            progressDialog.dismiss();
-                    }
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Usuário ou senha invalidos", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<UserResponse> call, Throwable t) {
-
+            public void onFailure(Call<JwtToken> call, Throwable t) {
+                System.out.println("FALHOUUU ESSA MIERDA");
             }
         });
 

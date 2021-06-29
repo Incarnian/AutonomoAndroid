@@ -10,13 +10,14 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface SupplierCall {
     @GET("/users/{id}/suppliers")
-    Call<List<SupplierResponse>> getSuppliers(@Path(value = "id") Long id);
+    Call<List<SupplierResponse>> getSuppliers(@Header("Authorization") String token, @Path(value = "id") Long id);
 
     @POST("/users/{id}/suppliers")
-    Call<SupplierResponse> createSuppliers (@Path(value = "id") Long id, @Body SupplierRequest supplierRequest);
+    Call<SupplierResponse> createSuppliers (@Header("Authorization") String token,@Path(value = "id") Long id, @Body SupplierRequest supplierRequest);
 }

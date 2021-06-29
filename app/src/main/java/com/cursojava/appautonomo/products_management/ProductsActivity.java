@@ -94,8 +94,8 @@ public class ProductsActivity extends AppCompatActivity {
 
     private void getProducts() {
         ProductCall requests = HttpClient.getInstance();
-
-        Call<List<ProductResponse>> productsResponse = requests.readProducts(sp.getLong(Constants.USER_ID, 0));
+        String token = sp.getString(Constants.FULL_TOKEN, "");
+        Call<List<ProductResponse>> productsResponse = requests.readProducts(token, sp.getLong(Constants.USER_ID, 0));
 
         productsResponse.enqueue(new Callback<List<ProductResponse>>() {
 

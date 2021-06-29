@@ -9,13 +9,14 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ClientCall {
     @GET("/users/{id}/clients")
-    Call<List<ClientResponse>> readClients(@Path(value = "id") Long id);
+    Call<List<ClientResponse>> readClients(@Header("Authorization") String token, @Path(value = "id") Long id);
 
     @POST("/users/{id}/clients")
-    Call<ClientResponse> createClient(@Path(value = "id") Long id, @Body ClientRequest clientRequest);
+    Call<ClientResponse> createClient(@Header("Authorization") String token, @Path(value = "id") Long id, @Body ClientRequest clientRequest);
 }

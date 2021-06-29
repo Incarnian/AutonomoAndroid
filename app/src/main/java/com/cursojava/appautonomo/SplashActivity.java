@@ -30,15 +30,20 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(firstLogin) {
-            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-            startActivity(intent);
-            finish();
-        }
-        else {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+
+        Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+        startActivity(intent);
+        finish();
+
+//        if(firstLogin) {
+//            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
+//        else {
+//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
     }
 }

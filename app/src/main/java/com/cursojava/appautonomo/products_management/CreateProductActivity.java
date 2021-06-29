@@ -99,9 +99,10 @@ public class CreateProductActivity extends AppCompatActivity {
         if(productResponse != null) {
             // Edit
             Call<Void> request;
+            String token = sp.getString(Constants.FULL_TOKEN, "");
 
             request = productCall
-                    .editProduct(sp.getLong(Constants.USER_ID, 0), productResponse.getId(), produtoAserSalvo);
+                    .editProduct(token, sp.getLong(Constants.USER_ID, 0), productResponse.getId(), produtoAserSalvo);
 
             request.enqueue(new Callback<Void>() {
                 @Override
@@ -131,8 +132,9 @@ public class CreateProductActivity extends AppCompatActivity {
         else {
             // Create
             Call<ProductResponse> request;
+            String token = sp.getString(Constants.FULL_TOKEN, "");
             request = productCall
-                    .createProduct(sp.getLong(Constants.USER_ID, 0) ,produtoAserSalvo);
+                    .createProduct(token, sp.getLong(Constants.USER_ID, 0) ,produtoAserSalvo);
 
             request.enqueue(new Callback<ProductResponse>() {
                 @Override
@@ -163,8 +165,9 @@ public class CreateProductActivity extends AppCompatActivity {
 
         // Suppliers Request
         SupplierCall supplierCall = HttpClient.getInstance();
+        String token = sp.getString(Constants.FULL_TOKEN, "");
 
-        Call<List<SupplierResponse>> allSuppliers = supplierCall.getSuppliers(sp.getLong(Constants.USER_ID, 0));
+        Call<List<SupplierResponse>> allSuppliers = supplierCall.getSuppliers(token, sp.getLong(Constants.USER_ID, 0));
 
         super.onStart();
         allSuppliers.enqueue(new Callback<List<SupplierResponse>>() {

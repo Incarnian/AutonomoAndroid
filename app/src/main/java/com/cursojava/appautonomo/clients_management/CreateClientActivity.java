@@ -83,8 +83,8 @@ public class CreateClientActivity extends AppCompatActivity {
                                             .build();
 
         ClientCall clientCall = HttpClient.getInstance();
-
-        Call<ClientResponse> backEndResponse = clientCall.createClient(sp.getLong(Constants.USER_ID, 0),clientToSave);
+        String token = sp.getString(Constants.FULL_TOKEN, "");
+        Call<ClientResponse> backEndResponse = clientCall.createClient(token, sp.getLong(Constants.USER_ID, 0),clientToSave);
 
         backEndResponse.enqueue(new Callback<ClientResponse>() {
             @Override
