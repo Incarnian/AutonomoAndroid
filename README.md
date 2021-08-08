@@ -1,4 +1,4 @@
 # AutonomoAndroid
 
 
-(/assets/orca_logo.png)
+![Ícone app autonomo](app/src/main/res/drawable/orca_logo.png)
